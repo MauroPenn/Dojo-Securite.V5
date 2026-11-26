@@ -7,7 +7,7 @@
   <meta name="description" content="Prototype interactif de détection des risques sécurité - parcours multi-zones sur tablette.">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
-  <title>Dojo Détection des Risques Sécurité · V5.2</title>
+  <title>Dojo Détection des Risques Sécurité · V5.3</title>
   <style>
     :root{--navy:#08294f;--blue:#07549f;--bright:#0877d8;--pale:#edf4fb;--line:#d1dfed;--ink:#19324c;--muted:#667789;--green:#17834d;--red:#cc3340;--amber:#be7014;--white:#fff;--shadow:0 8px 26px rgba(5,39,78,.09)}
     /* Taille par défaut des pictogrammes : évite les SVG géants sans dimensions explicites. */
@@ -203,7 +203,7 @@
 @media(max-width:650px){.identify-screen{padding:95px 12px 20px;background-position:35% center}.identify-panel{border-radius:18px;padding:19px 15px}.identify-panel .form-grid{grid-template-columns:1fr;gap:12px}.identify-panel .identity-foot{gap:12px}.identify-panel .identity-foot .btn{flex:1 1 100%}.identify-language button{min-width:42px}}
 @media(max-height:670px) and (min-width:651px){.identify-screen{padding-top:76px}.identify-panel{padding-top:17px;padding-bottom:17px}.identify-heading{margin-bottom:12px}.identify-panel .form-grid{gap:10px 15px}.identify-panel .field input{min-height:42px;padding:8px 12px}.identify-panel .identity-foot{margin-top:12px}}
 
-/* V5.2 — Identité visuelle inspirée du nouvel accueil bleu / mauve.
+/* V5.3 — Identité visuelle inspirée du nouvel accueil bleu / mauve.
    La photographie du Master reste uniquement sur l'accueil, afin de ne pas
    gêner les zones cliquables, les fiches, les résultats et la signature. */
 body{background:#07113a}
@@ -227,6 +227,73 @@ body{background:#07113a}
 .identify-accent{background:linear-gradient(90deg,#237eff,#ba42e5)}
 @media (max-width:700px){.app .container{width:calc(100% - 14px);margin:7px auto;border-radius:15px;padding:14px 10px}.identify-renault{font-size:24px}}
 @media print{.app{background:white!important}.app .container{background:white!important;box-shadow:none!important}}
+
+/* V5.3 – Deuxième écran : fond Renault officiel violet géométrique et formulaire réellement interactif.
+   Les autres écrans gardent leur V5.3 intacte. */
+.identify-screen{
+ background:#29106d url('fond-identification.webp') center center/cover no-repeat;
+ min-height:100dvh;padding:clamp(88px,12vh,132px) clamp(15px,4vw,62px) 26px;
+ justify-content:center;
+}
+.identify-renault{top:clamp(18px,2.8vw,35px);left:clamp(20px,4.3vw,72px);font-size:clamp(28px,3.2vw,48px);letter-spacing:-.055em;line-height:.87;text-shadow:none}
+.identify-top-title{position:absolute;top:clamp(27px,3.3vw,42px);left:28%;right:4%;font-size:clamp(20px,3vw,41px);font-weight:820;letter-spacing:-.025em;text-align:center;color:#fff;line-height:1.12;text-shadow:0 2px 6px #220e5f66}
+.identify-language{top:auto;bottom:5px;right:20px;gap:5px}
+.identify-language button{background:rgba(255,255,255,.93);border:1px solid #bca9e8;color:#291356;min-height:29px;min-width:37px;font-size:11px;padding:4px 5px}
+.identify-language button.active{background:#40208d;color:white;border-color:#40208d}
+.identify-panel{width:min(1210px,100%);padding:clamp(20px,3vw,39px) clamp(18px,3vw,42px);background:#fff;border-radius:clamp(20px,2.5vw,35px);margin:auto 0 12px;box-shadow:0 16px 55px #1d0b4d44}
+.identify-heading{display:flex;align-items:center;justify-content:center;gap:18px;text-align:left;margin:0 0 clamp(24px,3vw,35px)}
+.identify-heading-icon{flex:none;color:#3a1c81;border:3px solid #391a7d;border-radius:9px;width:53px;height:53px;display:grid;place-items:center}
+.identify-heading-icon svg{width:35px;height:35px}
+.identify-heading h1{font-size:clamp(25px,3vw,42px);margin:0;color:#091c42;letter-spacing:-.03em}
+.identify-heading p{font-size:clamp(14px,1.7vw,21px);margin:5px 0 0;color:#213052}
+.identify-panel .identity-card{border:0;padding:0}
+.identify-panel .identity-head{margin-bottom:14px}
+.identify-panel .identity-head h3{font-size:19px}
+.identify-panel .form-grid{gap:clamp(11px,2vw,19px) clamp(12px,2vw,26px)}
+.identify-panel .field{display:grid;grid-template-columns:54px minmax(0,1fr);gap:12px;align-items:end}
+.identify-panel .field-team{grid-column:1 / -1}
+.identify-panel .field-symbol{width:54px;height:53px;display:grid;place-items:center;border-radius:13px;background:#f2eff8;color:#351a79;margin-bottom:1px}
+.identify-panel .field-symbol svg{width:29px;height:29px}
+.identify-panel .field-input-group{min-width:0}
+.identify-panel .field label{display:block;color:#121f44;font-weight:800;font-size:clamp(14px,1.4vw,18px);margin-bottom:5px}
+.identify-panel .field input{min-height:53px;padding:10px 14px;border-radius:10px;border:1.5px solid #a5aac1;font-size:clamp(15px,1.4vw,18px);color:#18254b}
+.identify-panel .field input:focus{outline:3px solid #b9a5f4;border-color:#6838d4}
+.identify-panel .identity-foot{margin-top:clamp(21px,3vw,31px)}
+.identify-panel .identity-foot .btn{min-height:55px;font-size:clamp(15px,1.65vw,21px);padding:11px 24px;border-radius:14px;border:2px solid #472598;background:#fff;color:#321769}
+.identify-panel .identity-foot .btn.primary{background:#3b197d;color:white;border:2px solid #3b197d}
+.identify-panel .identity-foot .btn svg{height:23px;width:23px}
+.identify-panel .pill-label{background:#f3edff;border-color:#bda5ed;color:#35167d}
+.identify-panel .data-note{font-size:13px;color:#556077;margin-top:12px}
+.identify-footnote{font-size:11px;color:white;margin:4px 0 18px}
+@media(max-width:700px){
+ .identify-screen{padding:100px 10px 20px;background-position:center center}
+ .identify-renault{font-size:26px;left:15px;top:15px}
+ .identify-top-title{left:38%;top:17px;right:9px;font-size:clamp(15px,3.5vw,23px)}
+ .identify-panel{border-radius:21px;padding:19px 16px}
+ .identify-heading{gap:10px;margin-bottom:18px;text-align:left}
+ .identify-heading-icon{width:40px;height:40px;border-width:2px}
+ .identify-heading-icon svg{width:26px;height:26px}
+ .identify-panel .form-grid{grid-template-columns:1fr;gap:12px}
+ .identify-panel .field{grid-template-columns:39px minmax(0,1fr);gap:8px}
+ .identify-panel .field-symbol{width:39px;height:41px;border-radius:10px}
+ .identify-panel .field-symbol svg{width:22px;height:22px}
+ .identify-panel .field input{min-height:44px}
+ .identify-panel .identity-foot .btn{flex:1 1 auto;min-width:130px}
+ .identify-language{position:relative;bottom:auto;right:auto;align-self:end;margin:0 0 10px}
+ .identify-footnote{margin-bottom:0}
+}
+@media(max-height:720px) and (min-width:701px){
+ .identify-screen{padding-top:90px;padding-bottom:16px}
+ .identify-panel{padding:18px 26px;margin:0}
+ .identify-heading{margin-bottom:12px}
+ .identify-panel .field input{min-height:43px;padding:7px 12px}
+ .identify-panel .field-symbol{height:43px}
+ .identify-panel .form-grid{gap:9px 18px}
+ .identify-panel .identity-foot{margin-top:11px}
+ .identify-panel .identity-foot .btn{min-height:43px}
+ .identify-footnote{margin-top:6px}
+}
+
 </style>
 </head>
 <body>
@@ -250,10 +317,10 @@ const state={rexOpen:false,historyRecordId:null,profile:null,pendingStart:0,save
 const langOk=Object.hasOwn(texts,state.lang);if(!langOk)state.lang='fr';
 const $=s=>document.querySelector(s);const t=k=>texts[state.lang]?.[k]??texts.fr[k];const label=h=>h.t[state.lang]||h.t.fr;const detail=h=>h.d[state.lang]||h.d.fr;
 function header(){const items=[['fr','FR'],['uk','UKR'],['en','EN'],['dr','دری']];return `<header class="bar"><div class="brand">${I('factory')}<div>${t('brand')}</div></div><nav class="lang-switch" aria-label="Langues">${items.map(([id,display])=>`<button type="button" data-action="lang" data-lang="${id}" class="${id===state.lang?'active':''}" aria-pressed="${id===state.lang}">${display}</button>`).join('')}</nav></header>`}
-function footer(){return `<footer class="footer">Dojo Sécurité – V5.2 – signature tactile et fiche HSE • démonstration • 3 zones • 17 anomalies • résultats conservés localement sur cet appareil uniquement</footer>`}
+function footer(){return `<footer class="footer">Dojo Sécurité – V5.3 – signature tactile et fiche HSE • démonstration • 3 zones • 17 anomalies • résultats conservés localement sur cet appareil uniquement</footer>`}
 function title(headerTxt,sub,icon='helmet',level=2){return `<div class="hero"><div class="hero-icon">${I(icon)}<h${level}>${headerTxt}</h${level}></div>${sub?`<p>${sub}</p>`:''}<div class="accent"></div></div>`}
 function welcome(){return `<section class="welcome-screen" aria-label="Bienvenue au Dojo détection des risques sécurité"><div class="welcome-frame"><img class="welcome-art" src="accueil-dojo.webp" alt="Renault Group. Dojo Détection des Risques Sécurité. SOVAB, Département Montage. Accéder à l’évaluation."><button type="button" class="welcome-entry" data-action="enter-dojo" aria-label="Accéder à l’évaluation" title="Accéder à l’évaluation"></button></div></section>`}
-function home(){return `${title(t('title'),t('subtitle')+' · V5.2 TEST · Signature tactile et fiche HSE','helmet',1)}<div class="zone-cards">${zones.map((z,i)=>`<button class="zone-card" data-action="open-zone" data-zone="${i}" aria-label="${t('zone')} ${i+1} – ${t('zones')[i]}"><img alt="${t('zone')} ${i+1}" src="${z.image}"><div class="zone-caption">${I(z.icon,'glyph')}<span>${t('zone')} ${i+1}<br>${t('zones')[i]}</span><span class="arrow" aria-hidden="true">›</span></div></button>`).join('')}</div><div class="actions"><button class="btn primary big" data-action="start">${I('play')}${t('begin')}</button><button class="btn big" data-action="demo">${I('eye')}${t('demo')}</button><button class="btn big" data-action="history-view" data-id="${esc(state.savedEntryId||'')}">${I('eye')}Revoir la fiche enregistrée</button><button class="btn big" data-action="history">${I('check')}${f('history')}</button></div><div class="info-bar">${I('info')} <span>${state.lang==='fr'?'<strong>Parcours unique : zone 1 → zone 2 → zone 3.</strong> Vous pouvez changer de zone à tout moment et revenir sur vos réponses. <strong>La correction n’apparaît qu’après la fin du parcours.</strong>':t('how')}</span></div><p class="smallnote">${t('homeTip')} · ${f('demoAdvice')}</p>`}
+function home(){return `${title(t('title'),t('subtitle')+' · V5.3 TEST · Signature tactile et fiche HSE','helmet',1)}<div class="zone-cards">${zones.map((z,i)=>`<button class="zone-card" data-action="open-zone" data-zone="${i}" aria-label="${t('zone')} ${i+1} – ${t('zones')[i]}"><img alt="${t('zone')} ${i+1}" src="${z.image}"><div class="zone-caption">${I(z.icon,'glyph')}<span>${t('zone')} ${i+1}<br>${t('zones')[i]}</span><span class="arrow" aria-hidden="true">›</span></div></button>`).join('')}</div><div class="actions"><button class="btn primary big" data-action="start">${I('play')}${t('begin')}</button><button class="btn big" data-action="demo">${I('eye')}${t('demo')}</button><button class="btn big" data-action="history-view" data-id="${esc(state.savedEntryId||'')}">${I('eye')}Revoir la fiche enregistrée</button><button class="btn big" data-action="history">${I('check')}${f('history')}</button></div><div class="info-bar">${I('info')} <span>${state.lang==='fr'?'<strong>Parcours unique : zone 1 → zone 2 → zone 3.</strong> Vous pouvez changer de zone à tout moment et revenir sur vos réponses. <strong>La correction n’apparaît qu’après la fin du parcours.</strong>':t('how')}</span></div><p class="smallnote">${t('homeTip')} · ${f('demoAdvice')}</p>`}
 
 /* V4-Z1 : cinq anomalies validées, surfaces tolérantes sur la zone 1. */
 function distSegment(px,py,ax,ay,bx,by){const dx=bx-ax,dy=by-ay;const denom=dx*dx+dy*dy;const u=denom?Math.max(0,Math.min(1,((px-ax)*dx+(py-ay)*dy)/denom)):0;return Math.hypot(px-(ax+u*dx),py-(ay+u*dy))}
@@ -308,9 +375,9 @@ const STORAGE_KEY='dojo-securite-demo-evaluations-v1-signature-v49-test';
 function readHistory(){try{const raw=localStorage.getItem(STORAGE_KEY);const a=raw?JSON.parse(raw):[];return Array.isArray(a)?a:[]}catch(e){return []}}
 function writeHistory(rows){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(rows));state.historyError=null;return true}catch(e){state.historyError=f('notSaved');return false}}
 function profileStrip(){if(!state.profile)return '';const p=state.profile;return `<div class="record-strip"><div><strong>${f('profile')} : ${esc(p.name)} ${esc(p.first)}</strong><br><small>${f('matricule')} : ${esc(p.matricule||'—')} · UET : ${esc(p.uet||'—')} · ${f('team')} : ${esc(p.team||'—')}</small></div><span class="pill-label">${esc(f('version'))} 1 · 17 ${esc(t('checkpoints').toLowerCase())}</span></div>`}
-function identification(){const p=state.profile||{};const items=[['fr','FR'],['uk','UKR'],['en','EN'],['dr','دری']];return `<section class="identify-screen"><div class="identify-renault" aria-label="Renault Group">Renault<br>Group</div><nav class="identify-language" aria-label="Langues">${items.map(([id,display])=>`<button type="button" data-action="lang" data-lang="${id}" class="${id===state.lang?'active':''}" aria-pressed="${id===state.lang}">${display}</button>`).join('')}</nav><div class="identify-panel"><div class="identify-heading"><h1>${f('identity')}</h1><p>${f('identitySub')}</p><div class="identify-accent"></div></div><section class="identity-card"><div class="identity-head"><h3>${f('profile')}</h3><span class="pill-label">${f('required')} : ${f('name')} + ${f('first')}</span></div><form id="operator-form" autocomplete="off"><div class="form-grid">${[['name',f('name'),true],['first',f('first'),true],['matricule',f('matricule'),false],['uet','UET',false],['team',f('team'),false]].map(([key,label,required])=>`<div class="field"><label for="op-${key}">${label} ${required?'*':''}</label><input id="op-${key}" name="${key}" maxlength="90" ${required?'required':''} value="${esc(p[key])}" placeholder="${required?f('required'):f('optional')}" ${required?'autocomplete="off"':''}></div>`).join('')}</div><p class="data-note">${f('instructions')}</p>${state.mode==='demo'?`<p class="identity-sample">${f('sample')}</p>`:''}<div class="identity-foot"><button type="button" class="btn" data-action="go-welcome">${I('back')}${f('cancel')}</button><button class="btn primary big" type="submit">${I('play')}${f('start')}</button></div></form></section></div><p class="identify-footnote">${f('demoAdvice')}</p></section>`}
+function identification(){const p=state.profile||{};const items=[['fr','FR'],['uk','UKR'],['en','EN'],['dr','دری']];return `<section class="identify-screen"><div class="identify-renault" aria-label="Renault Group">Renault<br>Group</div><div class="identify-top-title">Dojo Détection des Risques Sécurité</div><nav class="identify-language" aria-label="Langues">${items.map(([id,display])=>`<button type="button" data-action="lang" data-lang="${id}" class="${id===state.lang?'active':''}" aria-pressed="${id===state.lang}">${display}</button>`).join('')}</nav><div class="identify-panel"><div class="identify-heading"><div class="identify-heading-icon">${I('eye')}</div><div><h1>${f('identity')}</h1><p>${f('identitySub')}</p></div></div><section class="identity-card"><div class="identity-head"><h3>${f('profile')}</h3><span class="pill-label">${f('required')} : ${f('name')} + ${f('first')}</span></div><form id="operator-form" autocomplete="off"><div class="form-grid">${[['name',f('name'),true],['first',f('first'),true],['matricule',f('matricule'),false],['uet','UET',false],['team',f('team'),false]].map(([key,label,required])=>`<div class="field field-${key}"><span class="field-symbol" aria-hidden="true">${I(key==='team'?'factory':key==='uet'?'factory':key==='matricule'?'info':'eye')}</span><div class="field-input-group"><label for="op-${key}">${label} ${required?'*':''}</label><input id="op-${key}" name="${key}" maxlength="90" ${required?'required':''} value="${esc(p[key])}" placeholder="${required?f('required'):f('optional')}" ${required?'autocomplete="off"':''}></div></div>`).join('')}</div><p class="data-note">${f('instructions')}</p>${state.mode==='demo'?`<p class="identity-sample">${f('sample')}</p>`:''}<div class="identity-foot"><button type="button" class="btn" data-action="go-welcome">${I('back')}${f('cancel')}</button><button class="btn primary big" type="submit">${I('play')}${f('start')}</button></div></form></section></div><p class="identify-footnote">${f('demoAdvice')}</p></section>`}
 function beginIdentification(mode,z){state.rexOpen=false;state.mode=mode;state.pendingStart=z;state.profile=mode==='demo'?{name:'MARTIN',first:'Alex',matricule:'',uet:'',team:''}:{name:'',first:'',matricule:'',uet:'',team:''};state.page='identify';state.savedEntryId=null;state.reviewed=[false,false,false];state.signatureDraft=null;state.signatureDrawn=false;state.historyError=null;render();window.scrollTo(0,0)}
-function finishAndSave(){if(state.page!=='eval'||state.zone!==2||!state.visited.every(Boolean))return;state.page='results';state.reveal=false;state.zoom=false;if(!state.savedEntryId){const rs=allResults();const good=rs.reduce((s,r)=>s+r.correct.length,0);const wrong=rs.reduce((s,r)=>s+r.wrong.length,0);const repeated=rs.reduce((s,r)=>s+r.repeat.length,0);const row={id:String(Date.now())+'-'+Math.random().toString(36).slice(2,9),when:new Date().toISOString(),operator:{...state.profile},dojoVersion:'dojo-v5-2-accueil-bleu-mauve-signature-test',signatureStatus:'en attente',rexRefs:[REX_DEMO.id],correct:good,total:17,pct:Math.round(good/17*100),wrong,repeated,zones:rs.map(r=>({zone:r.zone+1,correct:r.correct.length,total:hazards[r.zone].length,missed:r.miss.map(x=>x.h.t.fr),wrong:r.wrong.length})),captures:rs.map(r=>({zone:r.zone+1,points:state.pick[r.zone].map(p=>({x:+p.x.toFixed(5),y:+p.y.toFixed(5)})),hazards:hazards[r.zone].map((h,i)=>({name:h.t.fr,explanation:h.d.fr,x:h.x,y:h.y,found:r.correct.some(o=>o.hot===i)}))}))};const history=readHistory();if(writeHistory([row,...history]))state.savedEntryId=row.id}render();window.scrollTo(0,0)}
+function finishAndSave(){if(state.page!=='eval'||state.zone!==2||!state.visited.every(Boolean))return;state.page='results';state.reveal=false;state.zoom=false;if(!state.savedEntryId){const rs=allResults();const good=rs.reduce((s,r)=>s+r.correct.length,0);const wrong=rs.reduce((s,r)=>s+r.wrong.length,0);const repeated=rs.reduce((s,r)=>s+r.repeat.length,0);const row={id:String(Date.now())+'-'+Math.random().toString(36).slice(2,9),when:new Date().toISOString(),operator:{...state.profile},dojoVersion:'dojo-v5-3-identification-renault-violet-signature-test',signatureStatus:'en attente',rexRefs:[REX_DEMO.id],correct:good,total:17,pct:Math.round(good/17*100),wrong,repeated,zones:rs.map(r=>({zone:r.zone+1,correct:r.correct.length,total:hazards[r.zone].length,missed:r.miss.map(x=>x.h.t.fr),wrong:r.wrong.length})),captures:rs.map(r=>({zone:r.zone+1,points:state.pick[r.zone].map(p=>({x:+p.x.toFixed(5),y:+p.y.toFixed(5)})),hazards:hazards[r.zone].map((h,i)=>({name:h.t.fr,explanation:h.d.fr,x:h.x,y:h.y,found:r.correct.some(o=>o.hot===i)}))}))};const history=readHistory();if(writeHistory([row,...history]))state.savedEntryId=row.id}render();window.scrollTo(0,0)}
 function fmtDate(s){try{return new Intl.DateTimeFormat(state.lang==='fr'?'fr-FR':state.lang==='uk'?'uk-UA':state.lang==='dr'?'fa-AF':'en-GB',{dateStyle:'short',timeStyle:'short'}).format(new Date(s))}catch(e){return String(s)}}
 
 // Historique visuel : chaque nouvelle session conserve les points exacts de sélection.
