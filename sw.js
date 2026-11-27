@@ -1,4 +1,4 @@
-const CACHE='dojo-securite-v5-5-correctif-violet-20261126';
+const CACHE='dojo-securite-v5-6-1-correctif-violet-20261126';
 const ASSETS=['./','./index.html','./accueil-dojo.webp','./fond-pages.webp','./fond-identification.webp','./zone-1.webp','./zone-2.webp','./zone-3.webp','./circulation-passage-pieton.png','./circulation-feux-rouges.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('dojo-securite-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
